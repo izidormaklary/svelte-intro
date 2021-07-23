@@ -27,8 +27,9 @@
 <nav class="bg-red-500 sticky top-0 ">
     <div class="flex flex-wrap items-center sm:w-full  md:w-3/4 mx-auto justify-between h-28 ">
 
-        <span class="sm:text-1xl md:text-4xl flex-shrink-0 text-white font-semibold align-middle ml-4">
-            Recipe Page
+        <span class="cursor-pointer sm:text-1xl md:text-4xl flex-shrink-0 text-white font-semibold align-middle ml-4"
+        on:click={Home}>
+            Recipes
             <img class="h-14 inline-block" src="/chef.png" alt="">
         </span>
         <span class=" m-1 h-12 flex-shrink-0" on:click>
@@ -36,6 +37,7 @@
                    bind:value={search}
                    on:input={fetchSuggestions}
                    on:keypress={onKeyPress}
+                   placeholder="look up recipe.."
                    list="suggestions">
                 <datalist id="suggestions">
                     {#each suggestions as el}
