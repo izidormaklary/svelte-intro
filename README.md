@@ -8,3 +8,10 @@ The goal of the project is to create a recipe browsing page using the [themealdb
 * Recipe browsing page
 
 
+
+Core functionality working
+
+## todo:
+
+* **Landing page**
+

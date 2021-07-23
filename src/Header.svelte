@@ -15,6 +15,12 @@
     function sendClicked(input) {
         dispatch ('search',input )
     }
+    function Home(){
+        dispatch('home',true)
+    }
+    const onKeyPress = e => {
+        if (e.charCode === 13) sendClicked(search)
+    }
 
 </script>
 
@@ -25,15 +31,18 @@
             Recipe Page
             <img class="h-14 inline-block" src="/chef.png" alt="">
         </span>
-        <span class=" m-1 h-12 flex-shrink-0">
-            <input class="h-full shadow-inner transition rounded focus:rounded-sm  duration-100 border border-transparent focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
-                   bind:value={search} on:input={fetchSuggestions} list="suggestions">
+        <span class=" m-1 h-12 flex-shrink-0" on:click>
+            <input class="h-full shadow-inner pl-1  rounded   duration-100 border border-transparent focus:w-auto focus:rounded-sm focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
+                   bind:value={search}
+                   on:input={fetchSuggestions}
+                   on:keypress={onKeyPress}
+                   list="suggestions">
                 <datalist id="suggestions">
                     {#each suggestions as el}
                         <option value="{el}">
                     {/each}
                 </datalist>
-            <button class="rounded-full shadow-md h-full bg-red-600 text-white w-24 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50 "
+            <button class="rounded-full shadow-md h-full bg-red-600 text-white w-24 hover:bg-red-700 outline-none focus:outline-none focus:ring-2 focus:ring-white-600 focus:ring-opacity-50 "
                     type="button" on:click={sendClicked(search)}>Search</button>
         </span>
     </div>
