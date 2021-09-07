@@ -7,7 +7,6 @@
             const data = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?f=${search}`);
             let result = await data.json();
             $: result.meals.forEach(element => suggestions = [...suggestions, element.strMeal])
-            console.log(suggestions)
         }
     }
     import { createEventDispatcher } from 'svelte';
@@ -25,7 +24,7 @@
 </script>
 
 <nav class="bg-red-500 sticky top-0 ">
-    <div class="flex flex-wrap items-center sm:w-full  md:w-3/4 mx-auto justify-between h-28 ">
+    <div class="flex flex-wrap items-center sm:w-full  md:w-3/4 mx-auto justify-between h-24 ">
 
         <span class="cursor-pointer sm:text-1xl md:text-4xl flex-shrink-0 text-white font-semibold align-middle ml-4"
         on:click={Home}>
